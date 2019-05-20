@@ -7,13 +7,12 @@ correspond to the query
 -- the results to the SAS (Science Archive Server) for FITS file retrieval.
 SELECT 
    p.objid,p.ra,p.dec,p.u,p.g,p.r,p.i,p.z,
-   s.specobjid, s.class, s.z as redshift,
-   s.plate, s.mjd, s.fiberid
+   s.class, s.z as redshift
 FROM PhotoObj AS p
    JOIN SpecObj AS s ON s.bestobjid = p.objid
 WHERE 
-   p.u BETWEEN 0 AND 19.0
-   AND g BETWEEN 0 AND 20.0
+   p.r BETWEEN 0 AND 17.0
+   AND s.class = "GALAXY"
 
 ```
 
